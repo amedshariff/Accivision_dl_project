@@ -1,2 +1,2 @@
-print("Road Safety AI Project Started!")
+print("hello world")
 print("Environment is working correctly.")
