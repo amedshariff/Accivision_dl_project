@@ -1,0 +1,299 @@
+{
+  "1": {
+    "observations": 73,
+    "moving_count": 27,
+    "stationary_count": 46,
+    "average_speed_mps": 1.65,
+    "max_speed_mps": 16.56,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 1
+  },
+  "2": {
+    "observations": 19,
+    "moving_count": 7,
+    "stationary_count": 12,
+    "average_speed_mps": 1.44,
+    "max_speed_mps": 2.93,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "3": {
+    "observations": 4,
+    "moving_count": 3,
+    "stationary_count": 1,
+    "average_speed_mps": 1.9,
+    "max_speed_mps": 3.0,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "4": {
+    "observations": 4,
+    "moving_count": 2,
+    "stationary_count": 2,
+    "average_speed_mps": 2.36,
+    "max_speed_mps": 4.58,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "5": {
+    "observations": 2,
+    "moving_count": 1,
+    "stationary_count": 1,
+    "average_speed_mps": 1.01,
+    "max_speed_mps": 2.02,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "6": {
+    "observations": 2,
+    "moving_count": 1,
+    "stationary_count": 1,
+    "average_speed_mps": 1.12,
+    "max_speed_mps": 2.25,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "7": {
+    "observations": 54,
+    "moving_count": 43,
+    "stationary_count": 11,
+    "average_speed_mps": 3.1,
+    "max_speed_mps": 14.12,
+    "dominant_direction": "Up",
+    "abnormal_events": 1
+  },
+  "8": {
+    "observations": 5,
+    "moving_count": 4,
+    "stationary_count": 1,
+    "average_speed_mps": 6.34,
+    "max_speed_mps": 16.3,
+    "dominant_direction": "Up",
+    "abnormal_events": 0
+  },
+  "9": {
+    "observations": 5,
+    "moving_count": 4,
+    "stationary_count": 1,
+    "average_speed_mps": 3.6,
+    "max_speed_mps": 6.92,
+    "dominant_direction": "Up",
+    "abnormal_events": 1
+  },
+  "10": {
+    "observations": 1,
+    "moving_count": 0,
+    "stationary_count": 1,
+    "average_speed_mps": 0.0,
+    "max_speed_mps": 0.0,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "11": {
+    "observations": 23,
+    "moving_count": 1,
+    "stationary_count": 22,
+    "average_speed_mps": 0.81,
+    "max_speed_mps": 3.86,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "16": {
+    "observations": 1,
+    "moving_count": 0,
+    "stationary_count": 1,
+    "average_speed_mps": 0.0,
+    "max_speed_mps": 0.0,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "21": {
+    "observations": 3,
+    "moving_count": 1,
+    "stationary_count": 2,
+    "average_speed_mps": 1.26,
+    "max_speed_mps": 2.19,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "23": {
+    "observations": 53,
+    "moving_count": 48,
+    "stationary_count": 5,
+    "average_speed_mps": 3.34,
+    "max_speed_mps": 13.02,
+    "dominant_direction": "Right",
+    "abnormal_events": 1
+  },
+  "24": {
+    "observations": 30,
+    "moving_count": 23,
+    "stationary_count": 7,
+    "average_speed_mps": 2.29,
+    "max_speed_mps": 6.55,
+    "dominant_direction": "Up",
+    "abnormal_events": 0
+  },
+  "54": {
+    "observations": 7,
+    "moving_count": 6,
+    "stationary_count": 1,
+    "average_speed_mps": 4.97,
+    "max_speed_mps": 6.89,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "60": {
+    "observations": 8,
+    "moving_count": 7,
+    "stationary_count": 1,
+    "average_speed_mps": 4.66,
+    "max_speed_mps": 6.76,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "62": {
+    "observations": 28,
+    "moving_count": 26,
+    "stationary_count": 2,
+    "average_speed_mps": 4.1,
+    "max_speed_mps": 10.4,
+    "dominant_direction": "Up",
+    "abnormal_events": 2
+  },
+  "66": {
+    "observations": 31,
+    "moving_count": 7,
+    "stationary_count": 24,
+    "average_speed_mps": 1.11,
+    "max_speed_mps": 6.56,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "67": {
+    "observations": 108,
+    "moving_count": 74,
+    "stationary_count": 34,
+    "average_speed_mps": 3.4,
+    "max_speed_mps": 10.92,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "68": {
+    "observations": 19,
+    "moving_count": 18,
+    "stationary_count": 1,
+    "average_speed_mps": 4.23,
+    "max_speed_mps": 9.68,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "70": {
+    "observations": 13,
+    "moving_count": 12,
+    "stationary_count": 1,
+    "average_speed_mps": 5.48,
+    "max_speed_mps": 14.05,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "87": {
+    "observations": 95,
+    "moving_count": 51,
+    "stationary_count": 44,
+    "average_speed_mps": 1.85,
+    "max_speed_mps": 7.37,
+    "dominant_direction": "Up",
+    "abnormal_events": 0
+  },
+  "91": {
+    "observations": 52,
+    "moving_count": 28,
+    "stationary_count": 24,
+    "average_speed_mps": 2.28,
+    "max_speed_mps": 11.86,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 1
+  },
+  "94": {
+    "observations": 30,
+    "moving_count": 29,
+    "stationary_count": 1,
+    "average_speed_mps": 3.08,
+    "max_speed_mps": 7.95,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "98": {
+    "observations": 56,
+    "moving_count": 54,
+    "stationary_count": 2,
+    "average_speed_mps": 4.17,
+    "max_speed_mps": 10.2,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "107": {
+    "observations": 8,
+    "moving_count": 7,
+    "stationary_count": 1,
+    "average_speed_mps": 3.89,
+    "max_speed_mps": 7.39,
+    "dominant_direction": "Right",
+    "abnormal_events": 0
+  },
+  "110": {
+    "observations": 63,
+    "moving_count": 51,
+    "stationary_count": 12,
+    "average_speed_mps": 2.34,
+    "max_speed_mps": 4.53,
+    "dominant_direction": "Up",
+    "abnormal_events": 0
+  },
+  "118": {
+    "observations": 2,
+    "moving_count": 1,
+    "stationary_count": 1,
+    "average_speed_mps": 1.33,
+    "max_speed_mps": 2.65,
+    "dominant_direction": "Stationary",
+    "abnormal_events": 0
+  },
+  "120": {
+    "observations": 22,
+    "moving_count": 21,
+    "stationary_count": 1,
+    "average_speed_mps": 3.99,
+    "max_speed_mps": 8.26,
+    "dominant_direction": "Up",
+    "abnormal_events": 0
+  },
+  "123": {
+    "observations": 32,
+    "moving_count": 23,
+    "stationary_count": 9,
+    "average_speed_mps": 3.42,
+    "max_speed_mps": 10.93,
+    "dominant_direction": "Up",
+    "abnormal_events": 2
+  },
+  "129": {
+    "observations": 42,
+    "moving_count": 40,
+    "stationary_count": 2,
+    "average_speed_mps": 3.32,
+    "max_speed_mps": 7.11,
+    "dominant_direction": "Up",
+    "abnormal_events": 0
+  },
+  "135": {
+    "observations": 29,
+    "moving_count": 28,
+    "stationary_count": 1,
+    "average_speed_mps": 3.7,
+    "max_speed_mps": 16.88,
+    "dominant_direction": "Right",
+    "abnormal_events": 1
+  }
+}

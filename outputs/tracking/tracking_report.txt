@@ -1,0 +1,44 @@
+============================================================
+PERSON 2 - TRACKING & MOTION ANALYSIS REPORT
+============================================================
+Input video:        C:\dl_project\project\outputs\detections\processed_road_test.mp4
+Frames processed:   196/196
+Unique tracks:      33
+Total track points: 924
+
+PER-TRACK SUMMARY:
+------------------------------------------------------------
+Track ID   1 | Obs:   73 | Avg Speed:  1.65 m/s | Max Speed: 16.56 m/s | Dir: Stationary | Moving:  27 | Stat:  46
+Track ID   2 | Obs:   19 | Avg Speed:  1.44 m/s | Max Speed:  2.93 m/s | Dir: Stationary | Moving:   7 | Stat:  12
+Track ID   3 | Obs:    4 | Avg Speed:  1.90 m/s | Max Speed:  3.00 m/s | Dir: Right      | Moving:   3 | Stat:   1
+Track ID   4 | Obs:    4 | Avg Speed:  2.36 m/s | Max Speed:  4.58 m/s | Dir: Stationary | Moving:   2 | Stat:   2
+Track ID   5 | Obs:    2 | Avg Speed:  1.01 m/s | Max Speed:  2.02 m/s | Dir: Stationary | Moving:   1 | Stat:   1
+Track ID   6 | Obs:    2 | Avg Speed:  1.12 m/s | Max Speed:  2.25 m/s | Dir: Stationary | Moving:   1 | Stat:   1
+Track ID   7 | Obs:   54 | Avg Speed:  3.10 m/s | Max Speed: 14.12 m/s | Dir: Up         | Moving:  43 | Stat:  11
+Track ID   8 | Obs:    5 | Avg Speed:  6.34 m/s | Max Speed: 16.30 m/s | Dir: Up         | Moving:   4 | Stat:   1
+Track ID   9 | Obs:    5 | Avg Speed:  3.60 m/s | Max Speed:  6.92 m/s | Dir: Up         | Moving:   4 | Stat:   1
+Track ID  10 | Obs:    1 | Avg Speed:  0.00 m/s | Max Speed:  0.00 m/s | Dir: Stationary | Moving:   0 | Stat:   1
+Track ID  11 | Obs:   23 | Avg Speed:  0.81 m/s | Max Speed:  3.86 m/s | Dir: Stationary | Moving:   1 | Stat:  22
+Track ID  16 | Obs:    1 | Avg Speed:  0.00 m/s | Max Speed:  0.00 m/s | Dir: Stationary | Moving:   0 | Stat:   1
+Track ID  21 | Obs:    3 | Avg Speed:  1.26 m/s | Max Speed:  2.19 m/s | Dir: Stationary | Moving:   1 | Stat:   2
+Track ID  23 | Obs:   53 | Avg Speed:  3.34 m/s | Max Speed: 13.02 m/s | Dir: Right      | Moving:  48 | Stat:   5
+Track ID  24 | Obs:   30 | Avg Speed:  2.29 m/s | Max Speed:  6.55 m/s | Dir: Up         | Moving:  23 | Stat:   7
+Track ID  54 | Obs:    7 | Avg Speed:  4.97 m/s | Max Speed:  6.89 m/s | Dir: Right      | Moving:   6 | Stat:   1
+Track ID  60 | Obs:    8 | Avg Speed:  4.66 m/s | Max Speed:  6.76 m/s | Dir: Right      | Moving:   7 | Stat:   1
+Track ID  62 | Obs:   28 | Avg Speed:  4.10 m/s | Max Speed: 10.40 m/s | Dir: Up         | Moving:  26 | Stat:   2
+Track ID  66 | Obs:   31 | Avg Speed:  1.11 m/s | Max Speed:  6.56 m/s | Dir: Stationary | Moving:   7 | Stat:  24
+Track ID  67 | Obs:  108 | Avg Speed:  3.40 m/s | Max Speed: 10.92 m/s | Dir: Right      | Moving:  74 | Stat:  34
+Track ID  68 | Obs:   19 | Avg Speed:  4.23 m/s | Max Speed:  9.68 m/s | Dir: Right      | Moving:  18 | Stat:   1
+Track ID  70 | Obs:   13 | Avg Speed:  5.48 m/s | Max Speed: 14.05 m/s | Dir: Right      | Moving:  12 | Stat:   1
+Track ID  87 | Obs:   95 | Avg Speed:  1.85 m/s | Max Speed:  7.37 m/s | Dir: Up         | Moving:  51 | Stat:  44
+Track ID  91 | Obs:   52 | Avg Speed:  2.28 m/s | Max Speed: 11.86 m/s | Dir: Stationary | Moving:  28 | Stat:  24
+Track ID  94 | Obs:   30 | Avg Speed:  3.08 m/s | Max Speed:  7.95 m/s | Dir: Right      | Moving:  29 | Stat:   1
+Track ID  98 | Obs:   56 | Avg Speed:  4.17 m/s | Max Speed: 10.20 m/s | Dir: Right      | Moving:  54 | Stat:   2
+Track ID 107 | Obs:    8 | Avg Speed:  3.89 m/s | Max Speed:  7.39 m/s | Dir: Right      | Moving:   7 | Stat:   1
+Track ID 110 | Obs:   63 | Avg Speed:  2.34 m/s | Max Speed:  4.53 m/s | Dir: Up         | Moving:  51 | Stat:  12
+Track ID 118 | Obs:    2 | Avg Speed:  1.33 m/s | Max Speed:  2.65 m/s | Dir: Stationary | Moving:   1 | Stat:   1
+Track ID 120 | Obs:   22 | Avg Speed:  3.99 m/s | Max Speed:  8.26 m/s | Dir: Up         | Moving:  21 | Stat:   1
+Track ID 123 | Obs:   32 | Avg Speed:  3.42 m/s | Max Speed: 10.93 m/s | Dir: Up         | Moving:  23 | Stat:   9
+Track ID 129 | Obs:   42 | Avg Speed:  3.32 m/s | Max Speed:  7.11 m/s | Dir: Up         | Moving:  40 | Stat:   2
+Track ID 135 | Obs:   29 | Avg Speed:  3.70 m/s | Max Speed: 16.88 m/s | Dir: Right      | Moving:  28 | Stat:   1
+============================================================

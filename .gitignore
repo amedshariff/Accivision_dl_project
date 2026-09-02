@@ -1,4 +1,4 @@
-# Virtual environment
+﻿# Virtual environment
 .venv/
 venv/
 env/
@@ -8,22 +8,26 @@ __pycache__/
 *.pyc
 *.pyo
 
-# VS Code
+# VS Code & IDE
 .vscode/
-
-# Other IDE
 .idea/
 
 # Environment/secrets
 .env
 
-# Large video files
-*.mp4
+# Generated runs & logs
+runs/
+logs/
+
+# Generated outputs (preserve output folder structure via .gitkeep)
+outputs/*
+!outputs/detections/
+!outputs/detections/.gitkeep
+!outputs/tracking/
+!outputs/tracking/.gitkeep
+
+# Exclude generated video files outside data/raw
 *.avi
 *.mov
 *.mkv
-
-# Generated files
-runs/
-outputs/
-logs/
+outputs/**/*.mp4

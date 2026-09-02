@@ -1,0 +1,24 @@
+﻿{
+  "contract": "Person 1 to Person 2 Detection Schema",
+  "version": "1.0",
+  "required_fields": [
+    "frame_id",
+    "timestamp_sec",
+    "class",
+    "x1",
+    "y1",
+    "x2",
+    "y2",
+    "confidence"
+  ],
+  "bbox_format": "x1,y1,x2,y2",
+  "coordinate_system": "pixel",
+  "road_classes": [
+    "car",
+    "motorcycle",
+    "bus",
+    "truck",
+    "bicycle",
+    "person"
+  ]
+}
