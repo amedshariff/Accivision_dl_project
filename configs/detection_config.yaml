@@ -1,0 +1,16 @@
+﻿# YOLO & Tracking Configuration
+yolo:
+  model_weights: "detection/weights/yolo11n.pt"
+  confidence_threshold: 0.40
+  classes:
+    - car
+    - motorcycle
+    - bus
+    - truck
+    - bicycle
+    - person
+
+tracker:
+  type: "bytetrack.yaml"
+  history_length: 30
+  pixels_per_meter: 80.0

@@ -1,185 +1,108 @@
 ﻿# 🚦 AI-Powered Real-Time Road Safety & Accident Detection System
 
-A deep-learning-based road safety and accident detection pipeline built according to the 4-person team architecture contract.
-
-> **Scope**: Person 1 (Video Preprocessing + YOLO Object Detection) → Person 2 (ByteTrack Tracking + Motion Features) → **STOP**  
-> *(Person 3 & Person 4 are intentionally out-of-scope and not implemented)*
+A complete deep-learning-based accident detection pipeline:
+**Input Road Video → OpenCV Preprocessing → YOLO Detection → ByteTrack Tracking → CNN-LSTM Classifier → Accident Verdict (Yes/No)**
 
 ---
 
-## 🏛️ Project Architecture
-
-The implemented pipeline connects Person 1 and Person 2 into one continuous, robust stream:
+## 🏛️ Pipeline Overview
 
 ```text
        ┌────────────────────────┐
        │   Road Video / CCTV    │
-       │    (data/raw/*.mp4)    │
+       │  (Accident or Normal)  │
        └───────────┬────────────┘
                    │
                    ▼
        ┌────────────────────────┐
-       │        PERSON 1        │
-       │  VideoProcessor (CV2)  │  --> Processed Video (outputs/detections/processed_road_test.mp4)
+       │ 1. OpenCV Preprocess   │  --> Uniform 16-frame sampling, resize (224x224), ImageNet normalization
        └───────────┬────────────┘
                    │
                    ▼
        ┌────────────────────────┐
-       │        PERSON 1        │
-       │  YOLODetector (YOLO11) │  --> Annotated Video & Detections (CSV & JSON)
+       │ 2. YOLO Detection      │  --> YOLOv11 nano: cars, motorcycles, buses, trucks, bicycles, pedestrians
        └───────────┬────────────┘
                    │
                    ▼
        ┌────────────────────────┐
-       │        PERSON 2        │
-       │ MultiObjectTracker     │  --> ByteTrack ID Persistence & Trajectory Trails
-       │ (ByteTrack + Motion)   │  --> Kinematic Speed & Direction Analysis
+       │ 3. Object Tracking     │  --> ByteTrack IDs, trajectories, velocity in m/s, direction, motion alerts
        └───────────┬────────────┘
                    │
                    ▼
        ┌────────────────────────┐
-       │     FINAL OUTPUTS      │
-       │   tracked_video.mp4    │
-       │   trajectories.csv     │  --> Handoff to Person 3 (CNN+LSTM Sequence Buffer)
-       │  motion_features.json  │
-       │   tracking_report.txt  │
+       │ 4. CNN-LSTM Classifier │  --> Pretrained ResNet18 (spatial) + 2-layer LSTM (temporal dynamics)
        └───────────┬────────────┘
                    │
-              [STOP HERE]
-  (Person 3 & Person 4 NOT IMPLEMENTED)
+                   ▼
+       ┌────────────────────────────────────────────────────────┐
+       │                  FINAL VERDICT OUTPUT                  │
+       │  • ACCIDENT DETECTED (or NORMAL TRAFFIC)               │
+       │  • Accident Probability Score (e.g. 97.86%)            │
+       │  • Output Video with Real-Time HUD Gauge               │
+       └────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📁 Repository Structure
+## 📁 File Structure & Component Mapping
 
-```text
-dl_project/project/
-│
-├── data/
-│   └── raw/                       # Raw input videos (mock_accident.mp4, road_test.mp4, etc.)
-│
-├── preprocessing/                 # Person 1: Level 1 Video Preprocessing
-│   ├── __init__.py
-│   └── video_processor.py         # VideoProcessor class (OpenCV reading, sizing, metadata)
-│
-├── detection/                     # Person 1: Level 2 YOLO Object Detection
-│   ├── __init__.py
-│   ├── config.py                  # Detection configuration (classes, confidence, paths)
-│   ├── detection_schema.json      # Person 1 detection schema contract
-│   ├── yolo_detector.py           # YOLODetector class (YOLO11n, road classes)
-│   └── run_detection.py           # Person 1 standalone CLI runner
-│
-├── tracking/                      # Person 2: Level 3 Object Tracking & Motion
-│   ├── __init__.py
-│   ├── tracker.py                 # MultiObjectTracker (ByteTrack wrapper)
-│   ├── trajectory.py              # TrajectoryTracker (historical centers & displacement)
-│   ├── motion_features.py         # MotionFeatureExtractor (speed, direction, status, anomalies)
-│   └── run_tracking.py            # Person 2 standalone CLI runner
-│
-├── models/                        # Pretrained models & checkpoints
-│   └── yolo11n.pt                 # Pretrained YOLOv11 nano weights
-│
-├── outputs/                       # Generated deliverables
-│   ├── detections/                # Person 1 outputs (processed video, annotated video, CSV, JSON)
-│   └── tracking/                  # Person 2 outputs (tracked video, trajectories.csv, report)
-│
-├── tests/                         # Automated test suite
-│   ├── __init__.py
-│   ├── test_person_1.py           # Unit tests for VideoProcessor and YOLODetector
-│   ├── test_person_2.py           # Unit tests for TrajectoryTracker, Motion, and ByteTrack
-│   └── test_pipeline.py           # Integration tests (valid video, different video, missing video)
-│
-├── pipeline.py                    # End-to-end integration pipeline runner
-├── main.py                        # Primary entrypoint
-├── requirements.txt               # UTF-8 encoded project dependencies
-├── .gitignore                     # Git ignore rules
-└── README.md                      # Project documentation
-```
+### 1. OpenCV Preprocessing
+* `preprocessing/video_processor.py` — Ingests video, extracts FPS, dimensions, frame count; writes standardized MP4.
+* `preprocessing/video_preprocessing.py` — Coordinates extraction, resizing, and normalization for DL input.
+* `preprocessing/frame_extraction.py` — Uniform temporal sampling of 16 frames per video.
+* `preprocessing/resize_frames.py` — Standardizes frames to 224x224.
+* `preprocessing/normalize_frames.py` — ImageNet normalization and tensor stacking (1, 16, 3, 224, 224).
+* `preprocessing/optical_flow.py` — Computes Farneback dense motion vectors.
+* `preprocessing/utils.py` — Video metadata inspection helpers.
 
----
+### 2. YOLO Object Detection
+* `detection/yolo_detector.py` — Core YOLODetector class wrapping YOLOv11.
+* `detection/weights/yolo11n.pt` — Pretrained YOLOv11 nano model weights.
+* `detection/detection_config.py` — Confidence thresholds and target road classes.
+* `detection/draw_bounding_boxes.py` — Renders bounding boxes and confidence labels.
+* `detection/detect_objects.py` — Single-frame detection wrapper.
+* `detection/run_detection.py` — Standalone detection CLI.
 
-## ⚙️ Installation & Setup
+### 3. Object Tracking & Kinematics
+* `tracking/tracker.py` — MultiObjectTracker class integrating ByteTrack frame association.
+* `tracking/trajectory.py` — TrajectoryTracker maintaining rolling centroid history and motion trails.
+* `tracking/motion_features.py` — Kinematics engine: velocity (m/s), direction, anomaly flags.
+* `tracking/speed_estimation.py` — Pixel-to-meter speed estimation.
+* `tracking/tracking_config.py` — Tracking parameters.
+* `tracking/run_tracking.py` — Standalone tracking CLI.
 
-1. **Activate Python 3.11 / 3.12 Virtual Environment**:
-   ```powershell
-   .venv\Scripts\activate
-   ```
-
-2. **Install Dependencies**:
-   ```powershell
-   pip install -r requirements.txt
-   ```
+### 4. CNN–LSTM Temporal Classifier
+* `models/cnn_model.py` — Pretrained ResNet18 spatial feature extractor (outputs 512-dim embedding per frame).
+* `models/lstm_model.py` — 2-layer LSTM temporal network with dropout and classification head.
+* `models/cnn_lstm_model.py` — Composite end-to-end model (B, 16, 3, 224, 224) -> Probability.
+* `models/saved_models/best_model.pth` — Trained model weights checkpoint for out-of-the-box inference.
+* `training/dataset_loader.py` — PyTorch VideoSequenceDataset yielding video tensors and labels.
+* `training/train_cnn_lstm.py` — Training script with Adam optimizer and validation tracking.
+* `training/loss_functions.py` — Weighted BCE loss prioritizing accident recall.
+* `inference/accident_predictor.py` — Prediction API returning verdict (Accident vs. Normal) and probability.
+* `inference/video_inference.py` — Generates output video with HUD probability meter and status banner.
+* `integration/accident_detection_pipeline.py` — Glues all 4 stages together into one continuous stream.
 
 ---
 
 ## 🚀 How to Run
 
-### 1. Run Complete End-to-End Pipeline (Person 1 → Person 2 → STOP)
+### 1. Run Complete Pipeline on Any Video
 ```powershell
-python main.py --video data/raw/real_road_test.mp4
-```
-Optional flags:
-- `--max-frames <N>`: Process only first N frames (useful for rapid testing).
-- `--conf <threshold>`: Detection confidence threshold (default: 0.40).
-- `--output-dir <path>`: Custom output folder.
+# Test on accident video:
+python main.py --video data/raw/videos/accident/mock_accident.mp4
 
-### 2. Run Person 1 Standalone
-```powershell
-# Preprocessing only:
-python preprocessing/video_processor.py --input data/raw/real_road_test.mp4 --output outputs/detections/processed_road_test.mp4
-
-# YOLO Object Detection:
-python detection/run_detection.py --input data/raw/real_road_test.mp4 --output-dir outputs/detections
+# Test on normal traffic video:
+python main.py --video data/raw/videos/normal/real_road_test.mp4
 ```
 
-### 3. Run Person 2 Standalone
-```powershell
-python tracking/run_tracking.py --input data/raw/real_road_test.mp4 --output-dir outputs/tracking
-```
-
----
-
-## 🧪 Running Automated Tests
-
-Run the full test suite with verbose output:
+### 2. Run Automated Tests
 ```powershell
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-This validates:
-- **Video preprocessing** (resolution, FPS, durations, error handling).
-- **YOLO detections** (schema fields, road classes: `car`, `motorcycle`, `bus`, `truck`, `bicycle`, `person`).
-- **Object tracking** (ByteTrack persistent IDs, center calculations, trajectory trails).
-- **Motion features** (direction estimation, speed calculation, anomaly detection).
-- **Pipeline integration** (Valid video test, Different video test, Missing video error handling).
-
----
-
-## 🤝 Person 2 → Person 3 Handoff Contract
-
-Person 2 finishes all tracking and kinematic feature extraction and stores the result at:
-- **`outputs/tracking/trajectories.csv`**
-- **`outputs/tracking/motion_features.json`**
-- **`outputs/tracking/tracked_video.mp4`**
-
-### Schema of `trajectories.csv`:
-| Column | Type | Description |
-|---|---|---|
-| `frame_id` | `int` | 1-indexed video frame number |
-| `timestamp_sec` | `float` | Timestamp in seconds calculated from video FPS |
-| `track_id` | `int` | Persistent object identity across frames |
-| `class` | `str` | Detected road class (`car`, `motorcycle`, `bus`, etc.) |
-| `x1, y1, x2, y2` | `int` | Object bounding box pixel coordinates |
-| `center_x, center_y` | `int` | Object centroid in pixels |
-| `confidence` | `float` | YOLO confidence score |
-| `displacement_px` | `float` | Euclidean pixel distance from previous frame |
-| `direction` | `str` | Cardinal movement: `Up`, `Down`, `Left`, `Right`, `Stationary` |
-| `speed_mps` | `float` | Estimated speed in meters per second |
-| `status` | `str` | `Moving` or `Stationary` |
-| `alerts` | `str` | Kinematic warning flags (e.g. `HIGH_SPEED`, `DIRECTION_REVERSAL`) |
-
-### How Person 3 Can Use This:
-1. **Sequence Buffer (Level 5/6)**: Person 3 can ingest `trajectories.csv` alongside video frames to sample sequences of 16/32 frames per clip.
-2. **Kinematic Context**: Person 3's temporal model (CNN+LSTM) can use the bounding boxes and trajectory dynamics to focus feature extraction on high-speed or interacting vehicles.
-3. **Person 3 & 4 Status**: Intentionally not implemented. Person 3 can build on top of these stable IDs and motion features.
+### 3. Open Detailed Project PDF
+The project includes a complete PDF guide explaining every single file and technology:
+```powershell
+start docs/Accident_Detection_System_Complete_Guide.pdf
+```

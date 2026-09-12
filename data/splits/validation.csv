@@ -1,0 +1,3 @@
+﻿video_path,label,class_name,duration_sec,frames
+data/raw/videos/accident/mock_accident.mp4,1,accident,6.0,60
+data/raw/videos/normal/mock_normal.mp4,0,normal,6.0,60

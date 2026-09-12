@@ -1,0 +1,18 @@
+﻿# Model Architecture Configuration
+cnn_backbone:
+  type: "resnet18"
+  pretrained: true
+  freeze_weights: true
+  feature_dim: 512
+
+lstm:
+  hidden_dim: 128
+  num_layers: 2
+  dropout: 0.3
+  bidirectional: false
+
+training:
+  batch_size: 2
+  learning_rate: 0.0001
+  epochs: 5
+  pos_weight: 2.0

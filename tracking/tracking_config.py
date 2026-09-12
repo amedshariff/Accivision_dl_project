@@ -1,0 +1,7 @@
+﻿"""
+Tracking Config
+"""
+TRACKER_TYPE = "bytetrack.yaml"
+HISTORY_LENGTH = 30
+PIXELS_PER_METER = 80.0
+ABNORMAL_SPEED_MPS = 20.0

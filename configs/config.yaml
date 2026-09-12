@@ -1,0 +1,13 @@
+﻿# Global Project Configuration
+project_name: "Road Safety AI - Accident Detection System"
+version: "2.0.0"
+
+paths:
+  raw_videos: "data/raw/videos"
+  models: "models/saved_models"
+  outputs: "outputs"
+
+pipeline:
+  sequence_length: 16
+  input_frame_size: [224, 224]
+  accident_threshold: 0.50
