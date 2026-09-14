@@ -1,4 +1,4 @@
-﻿"""
+"""
 Unit Tests for CNN + LSTM Classifier and Inference Modules
 """
 import unittest
@@ -29,7 +29,7 @@ class TestClassifier(unittest.TestCase):
         self.assertGreaterEqual(prob, 0.0)
         self.assertLessEqual(prob, 1.0)
 
-    def test_accident_predictor_output(self):
+    def test_accident_predictor_mock_accident(self):
         predictor = AccidentPredictor()
         res = predictor.predict_video("data/raw/videos/accident/mock_accident.mp4")
         self.assertIn("is_accident", res)
@@ -37,6 +37,18 @@ class TestClassifier(unittest.TestCase):
         self.assertIn("accident_probability", res)
         self.assertTrue(res["is_accident"])
         self.assertGreaterEqual(res["accident_probability"], 0.50)
+
+    def test_accident_predictor_provided_accident_video(self):
+        predictor = AccidentPredictor()
+        res = predictor.predict_video("accident_videos.mp4")
+        self.assertTrue(res["is_accident"])
+        self.assertGreaterEqual(res["accident_probability"], 0.50)
+
+    def test_accident_predictor_normal_video(self):
+        predictor = AccidentPredictor()
+        res = predictor.predict_video("data/raw/videos/normal/mock_normal.mp4")
+        self.assertFalse(res["is_accident"])
+        self.assertLess(res["accident_probability"], 0.50)
 
 if __name__ == "__main__":
     unittest.main()
